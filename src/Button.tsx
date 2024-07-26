@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import { range } from "lodash-es";
 import { PropsWithChildren } from "react";
-import { makeStyles } from "tss-react/mui";
+import { tss } from "tss-react/mui";
 
 type Props = {
   className?: string;
@@ -20,7 +20,7 @@ export function MyButton(props: PropsWithChildren<Props>) {
 // change this to false to observe the big performance difference
 const slowDown = true;
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = tss.create(({ theme }) => ({
   ...Object.fromEntries(
     range(1, slowDown ? 1000 : 1).map((i) => [
       "some-class-" + i,
